@@ -4,8 +4,17 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   
+}
+
+class MyAppState extends State {
+  var questionIndex = 0;
+
+  void answerQuestion() {
+    questionIndex = questionIndex + 1;
+    print('Answer Question!');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +31,18 @@ class MyApp extends StatelessWidget {
           children: [
             Text('The question!'),
             ElevatedButton(
-              child: Text('Answer 1'),
+              child: Text(questions[0]),
               onPressed: answerQuestion,
             ),
             ElevatedButton(
-              child: Text('Answer 2'),
-              onPressed: () => print('Answer 2 chosen!') ,
+              child: Text(questions[1]),
+              onPressed: () => print('Answer 2 chosen!'),
             ),
             ElevatedButton(
               child: Text('Answer 3'),
-              onPressed: () => print('Answer 3 chosen!') ,
+              onPressed: () => print('Answer 3 chosen!'),
             ),
           ],
-          
         ),
       ),
     );
